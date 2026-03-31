@@ -1,0 +1,121 @@
+<mvc:View controllerName="project8.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+
+    <Page id="page" showHeader="false">
+
+        <content>
+
+            <FlexBox direction="Column" justifyContent="Start" height="100%">
+
+                <!-- ================= MAIN CONTENT ================= -->
+                <VBox id="mainContent" alignItems="Center">
+
+                    <Title text="STUDENT APPLICATION" width="100%" textAlign="Center" class="sapUiMediumMarginTop"/>
+                    <Title text="Home" width="100%" class="sapUiSmallMarginTop"/>
+
+                    <Button text="Open Image" press="onShowImage" class="sapUiSmallMarginTop"/>
+                    <Button text="Register Form" press="onShowForm" class="sapUiSmallMarginTop"/>
+
+                    <!-- ================= IMAGE ================= -->
+                    <VBox id="imageContainer" width="300px" visible="false" class="sapUiSmallMarginTop">
+
+                        <HBox justifyContent="SpaceBetween">
+                            <Button icon="sap-icon://nav-back" type="Transparent" press="onNavBack"/>
+                            <Button icon="sap-icon://decline" type="Transparent" press="onCloseImage"/>
+                        </HBox>
+
+                        <Image id="myImage" width="300px" class="customImage"/>
+
+                    </VBox>
+
+                    <!-- ================= FORM ================= -->
+                    <VBox 
+                        id="formContainer"
+                        visible="false"
+                        width="300px"
+                        class="sapUiMediumMarginTop">
+
+                        <!-- Close Icon -->
+                        <HBox justifyContent="End">
+                            <Button 
+                                icon="sap-icon://decline"
+                                type="Transparent"
+                                press="onCloseForm"
+                                tooltip="Close Form"/>
+                        </HBox>
+
+                        <f:SimpleForm
+                            id="registerForm"
+                            layout="ResponsiveGridLayout"
+                            editable="true">
+
+                            <f:content>
+
+                                <Label text="Student Name"/>
+                                <Input id="name"/>
+
+                                <Label text="Roll Number"/>
+                                <Input id="roll"/>
+
+                                <Label text="College"/>
+                                <Input id="college"/>
+
+                                <Label text="Course"/>
+                                <Input id="course"/>
+
+                                <Label text="Mobile Number"/>
+                                <Input id="mobile" type="Tel"/>
+
+                            </f:content>
+
+                        </f:SimpleForm>
+
+                    </VBox>
+
+                </VBox>
+
+                <!-- ================= SUCCESS PAGE ================= -->
+                <VBox 
+                    id="successPage"
+                    visible="false"
+                    height="100%"
+                    justifyContent="Center"
+                    alignItems="Center">
+
+                    <Title text="Form Submitted Successfully ✅"/>
+
+                    <Button 
+                        text="Resubmit Form"
+                        press="onResubmit"
+                        type="Emphasized"/>
+                </VBox>
+
+            </FlexBox>
+
+        </content>
+
+        <!-- ================= FOOTER ================= -->
+        <footer>
+            <Bar id="footerBar">
+                <contentRight>
+
+                    <Button 
+                        text="Submit"
+                        type="Emphasized"
+                        press="onSubmitForm"/>
+
+                    <Button 
+                        text="Cancel"
+                        type="Reject"
+                        press="onCancel"
+                        tooltip="Changes may not be saved"/>
+
+                </contentRight>
+            </Bar>
+        </footer>
+
+    </Page>
+
+</mvc:View>
